@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    /* Calculator container styling */
+    .calculator {
+      width: 250px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: #f9f9f9;
+    }
+
+    /* Display screen styling */
+    .display {
+      width: 100%;
+      height: 50px;
+      background-color: #e6e6e6;
+      text-align: right;
+      padding: 10px;
+      font-size: 1.5em;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    /* Styling for calculator buttons */
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .button {
+      width: 100%;
+      height: 50px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    /* Button colors and hover effects */
+    .button.number {
+      background-color: #d9ac17;
+    }
+    .button.operator {
+      background-color: #ffca28;
+      color: #fff;
+    }
+    .button.clear {
+      background-color: #ff5252;
+      color: #fff;
+    }
+    .button.equals {
+      background-color: #4caf50;
+      color: #fff;
+      grid-column: span 4;
+    }
+    .button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <!-- Display Screen -->
+    <div class="display" id="display">0</div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <!-- Numbers and Operators -->
+      <button class="button number" onclick="appendNumber('7')">7</button>
+      <button class="button number" onclick="appendNumber('8')">8</button>
+      <button class="button number" onclick="appendNumber('9')">9</button>
+      <button class="button operator" onclick="chooseOperator('/')">/</button>
+      <button class="button number" onclick="appendNumber('4')">4</button>
+      <button class="button number" onclick="appendNumber('5')">5</button>
+      <button class="button number" onclick="appendNumber('6')">6</button>
+      <button class="button operator" onclick="chooseOperator('*')">*</button>
+      <button class="button number" onclick="appendNumber('1')">1</button>
+      <button class="button number" onclick="appendNumber('2')">2</button>
+      <button class="button number" onclick="appendNumber('3')">3</button>
+      <button class="button operator" onclick="chooseOperator('-')">-</button>
+      <button class="button number" onclick="appendNumber('0')">0</button>
+      <button class="button number" onclick="appendNumber('.')">.</button>
+      <button class="button clear" onclick="clearDisplay()">C</button>
+      <button class="button operator" onclick="chooseOperator('+')">+</button>
+      <button class="button equals" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById("display");
+    let currentInput = '';
+    let previousInput = '';
+    let operator = null;
+
+    function appendNumber(number) {
+      if (currentInput === '' && number === '.') {
+        currentInput = '0.';
+      } else {
+        currentInput += number;
+      }
+      updateDisplay();
+    }
+
+    function chooseOperator(selectedOperator) {
+      if (currentInput === '') return;
+      if (previousInput !== '') calculate();
+      operator = selectedOperator;
+      previousInput = currentInput;
+      currentInput = '';
+    }
+
+    function updateDisplay() {
+      display.innerText = currentInput || previousInput || '0';
+    }
+
+    function clearDisplay() {
+      currentInput = '';
+      previousInput = '';
+      operator = null;
+      updateDisplay();
+    }
+
+    function calculate() {
+      let result;
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+      if (isNaN(prev) || isNaN(current)) return;
+
+      switch (operator) {
+        case '+':
+          result = prev + current;
+          break;
+        case '-':
+          result = prev - current;
+          break;
+        case '*':
+          result = prev * current;
+          break;
+        case '/':
+          result = prev / current;
+          break;
+        default:
+          return;
+      }
+      currentInput = result;
+      operator = null;
+      previousInput = '';
+      updateDisplay();
+    }
+  </script>
+
+</body>
+</html>
