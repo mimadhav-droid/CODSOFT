@@ -1,64 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Portfolio</title>
+  <link rel="Stylesheet" href="Style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <div class="logo">Addenda</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Welcome to Addenda</h1>
-        <p>Your journey starts here. Discover our amazing services and features.</p>
-        <a href="#features" class="cta-button">Learn More</a>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h1>Madhav Kumar Mishra</h1>
+    <p>Web Developer | Designer | Freelancer</p>
+    <p>I am Student of Computer Science and Engineering.</p>
+  </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2>Our Features</h2>
-        <div class="feature">
-            <h3>Feature 1</h3>
-            <p>High-quality services tailored to your needs.</p>
-        </div>
-        <div class="feature">
-            <h3>Feature 2</h3>
-            <p>Fast and reliable solutions for everyone.</p>
-        </div>
-        <div class="feature">
-            <h3>Feature 3</h3>
-            <p>24/7 Support available worldwide.</p>
-        </div>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <h3>JavaScript</h3>
+      <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+    </div>
+    <div class="skill">
+      <h3>HTML & CSS</h3>
+      <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+    </div>
+    <div class="skill">
+    <h3>c/c++ programming</h3>
+    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+  </div>
+  
+    <!-- Add more skills here -->
+  </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2>About Us</h2>
-        <p>We are a company dedicated to delivering top-notch services and excellent customer experience. Our team of experts is ready to assist you anytime.</p>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Sportify Clone</h3>
+      <p>
+        The Sportify Clone is a web application that replicates the core functionality and design of a popular sports streaming platform. It allows users to browse and stream sports content, view match highlights, and access live scores and schedules. Built with a responsive layout, it adapts seamlessly to various devices, providing an engaging user experience. The project demonstrates advanced web development skills, including front-end design with HTML, CSS, and JavaScript, and integrates a back-end framework to manage user accounts, track viewing history, and recommend personalized content.</p>
+      <button onclick="showDetails()">The Sportify Clone project is a comprehensive sports streaming platform built to emulate the functionality and experience of popular sports streaming sites. This application provides users with an interactive interface to watch live games, catch up on match highlights, view in-depth team statistics, and follow real-time scores across multiple sports, including football, basketball, cricket, and more.
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <p>Email us at <a href="mimadhavkumar50@gmail.com">mimadhavkumar50@gmail.com</a> or call us at 9534440585.</p>
-    </section>
+        Key features include:
+        
+        User Authentication: Secure login and registration, allowing users to create profiles, save favorite teams or leagues, and receive tailored content.
+        
+        Real-Time Match Streaming: Integration of live video feeds, with options for quality adjustments based on network speed, creating a smooth viewing experience.
+        
+        Dynamic Score Updates: Real-time scores and play-by-play updates, leveraging web sockets or live data APIs to keep users informed of ongoing events.
+        
+        Match Scheduling and Notifications: Users can view upcoming match schedules, set reminders, and receive notifications about important games or changes in match timing.
+        
+        Personalized Recommendations: Using user preferences and viewing history, the platform suggests matches, highlights, and news, making the experience engaging and tailored.
+        
+        Responsive Design: Optimized for both mobile and desktop, with intuitive navigation to access streams, replays, and stats easily.</button>
+    </div>
+    <!-- Add more projects here -->
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Addenda. All rights reserved.</p>
-    </footer>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script src="Script.js"></script>
 </body>
 </html>
